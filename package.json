@@ -1,0 +1,11 @@
+{
+  "name": "json_the_cat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/aingarant/json_the_cat.git",
+  "author": "Aingaran Thirunadarajah <aingaran.thirunadarajah@telus.com>",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
