@@ -19,7 +19,7 @@ const fetchBreedDescription = (breedName, callback) => {
       callback(errorMessage);
       return;
     }
-    description = `${data[0].description}`;
+    description = data[0].description.trim();
     callback(errorMessage, description);
   });
 };
