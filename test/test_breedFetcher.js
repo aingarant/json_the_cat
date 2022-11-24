@@ -1,17 +1,26 @@
-const chai = require('chai'); // 1
-const assert = chai.assert;
+const { fetchBreedDescription } = require('../breedFetcher');
+const { assert } = require('chai');
 
-const fetchBreedDescription = require('../index.js'); // 
+describe('fetchBreedDescription', () => {
+  it('returns a string description for a valid breed, via callback', (done) => {
+    fetchBreedDescription('Siberian', (err, desc) => {
+      // we expect no error for this scenario
 
+      const expectedDesc = "The Siberians dog like temperament and affection makes the ideal lap cat and will live quite happily indoors. Very agile and powerful, the Siberian cat can easily leap and reach high places, including the tops of refrigerators and even doors.";
+      assert.equal(err, null);
+      assert.equal(expectedDesc, desc.trim());
 
-describe("#fetchBreedDescription()", function() {
-
-
-  
-    it("should return false if it's a hatchback", function() {
-    const catBreed = "Siberian";
-    const expectedReponse = "The Siberians dog like temperament and affection makes the ideal lap cat and will live quite happily indoors. Very agile and powerful, the Siberian cat can easily leap and reach high places, including the tops of refrigerators and even doors. ";
-    assert.strictEqual(fetchBreedDescription(catBreed,null));
+      done();
+    });
   });
+
+  it('Error - If a non-existent cat, or spelling error made with breed name..', (done) => {
+    fetchBreedDescription('asdf', (err, desc) => {
+      const expected = "The Breed name you entered was not found.";
+      assert.equal(err, expected);
+      done();
+    });
+  });
+
 
 });

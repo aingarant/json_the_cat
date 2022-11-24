@@ -10,16 +10,16 @@ const fetchBreedDescription = (breedName, callback) => {
     const statusCode = response.statusCode;
 
     if (error) {
-      errorMessage = `There was was an error! \n code:', ${statusCode} \n\n`;
+      errorMessage = `There was was an error! code:, ${statusCode}`;
       callback(errorMessage);
       return;
     }
     if (data.length === 0) {
-      errorMessage = `${breedName}\nThe Breed name (${breedName}) was not found. \n\n`;
+      errorMessage = `The Breed name you entered was not found.`;
       callback(errorMessage);
       return;
     }
-    description = `${breedName}\n${data[0].description}\n`;
+    description = `${data[0].description}`;
     callback(errorMessage, description);
   });
 };

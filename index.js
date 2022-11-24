@@ -3,7 +3,7 @@ const { fetchBreedDescription } = require('./breedFetcher');
 let breeds = process.argv.splice("2");
 
 if (breeds.length === 0) {
-  return console.log(`You did not enter a breed!`);
+  return `You did not enter a breed!`;
 }
 
 // Remove duplicate entries in input array.
